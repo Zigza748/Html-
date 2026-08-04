@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My website!</title>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 24px;
+        background: #f7f7f7;
+      }
+      .image-wrap {
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+      }
+      .image-wrap img {
+        width: 300px;
+        border-radius: 12px;
+      }
+      .image-wrap::after {
+        content: "Tung Tung Tung Sahur";
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.75);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        opacity: 0;
+        pointer-events: none;
+        white-space: nowrap;
+      }
+      .image-wrap:hover::after {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="image-wrap">
+      <img src="Tung-Tung-Tung-Sahur-Transparent-HQ.png" alt="Tung Tung Tung Sahur">
+    </div>
+    <p><strong>Triple T</strong></p>
+    <h1>Welcome to my webpage</h1>
+    <p>This is my webpage and i want to make it look <b>good</b></p>
+    <a href="page1.html">learn more!</a>
+  </body>
+</html>
