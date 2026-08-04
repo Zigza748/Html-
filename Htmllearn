@@ -9,6 +9,43 @@
         padding: 24px;
         background: #f7f7f7;
       }
+      
+      /* Tab Navigation */
+      .tab-container {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #ddd;
+      }
+      
+      .tab-button {
+        padding: 12px 20px;
+        background: #e0e0e0;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        border-radius: 8px 8px 0 0;
+        transition: all 0.3s ease;
+      }
+      
+      .tab-button:hover {
+        background: #c0c0c0;
+      }
+      
+      .tab-button.active {
+        background: #4CAF50;
+        color: white;
+      }
+      
+      /* Tab Content */
+      .tab-content {
+        display: none;
+      }
+      
+      .tab-content.active {
+        display: block;
+      }
+      
       .image-wrap {
         display: inline-block;
         position: relative;
@@ -39,12 +76,58 @@
     </style>
   </head>
   <body>
-    <div class="image-wrap">
-      <img src="Tung-Tung-Tung-Sahur-Transparent-HQ.png" alt="Tung Tung Tung Sahur">
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+      <button class="tab-button active" onclick="switchTab(event, 'home')">Home</button>
+      <button class="tab-button" onclick="switchTab(event, 'gallery')">Gallery</button>
+      <button class="tab-button" onclick="switchTab(event, 'about')">About</button>
     </div>
-    <p><strong>Triple T</strong></p>
-    <h1>Welcome to my webpage</h1>
-    <p>This is my webpage and i want to make it look <b>good</b></p>
-    <a href="page1.html">learn more!</a>
+    
+    <!-- Tab Content -->
+    
+    <!-- Home Tab -->
+    <div id="home" class="tab-content active">
+      <h1>Welcome to my webpage</h1>
+      <p>This is my webpage and i want to make it look <b>good</b></p>
+      <p>Use the tabs above to navigate through different sections!</p>
+    </div>
+    
+    <!-- Gallery Tab -->
+    <div id="gallery" class="tab-content">
+      <h1>Gallery</h1>
+      <div class="image-wrap">
+        <img src="Tung-Tung-Tung-Sahur-Transparent-HQ.png" alt="Tung Tung Tung Sahur">
+      </div>
+      <p><strong>Triple T</strong></p>
+    </div>
+    
+    <!-- About Tab -->
+    <div id="about" class="tab-content">
+      <h1>About</h1>
+      <p>I'm learning HTML and trying to build my first webpage!</p>
+      <p>This is a simple tabbed interface to showcase different content.</p>
+    </div>
+    
+    <script>
+      function switchTab(event, tabName) {
+        // Hide all tab content
+        const tabs = document.querySelectorAll('.tab-content');
+        tabs.forEach(tab => {
+          tab.classList.remove('active');
+        });
+        
+        // Remove active class from all buttons
+        const buttons = document.querySelectorAll('.tab-button');
+        buttons.forEach(button => {
+          button.classList.remove('active');
+        });
+        
+        // Show the selected tab
+        document.getElementById(tabName).classList.add('active');
+        
+        // Add active class to the clicked button
+        event.target.classList.add('active');
+      }
+    </script>
   </body>
 </html>
